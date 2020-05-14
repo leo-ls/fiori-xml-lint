@@ -14,10 +14,13 @@ const config = {
         devtoolModuleFilenameTemplate: "../[resource-path]",
     },
     devtool: 'source-map',
-    externals: {
-        vscode: "commonjs vscode"
-    },
-    resolve: { 
+    externals: [
+        {
+            vscode: "commonjs vscode"
+        },
+        /^@sap/
+    ],
+    resolve: {
         extensions: ['.ts', '.js']
     },
     module: {
