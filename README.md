@@ -1,2 +1,4 @@
 # fiori-xml-lint
-Fiori XML linter for Visual Studio Code
+Fiori XML Linter for VSCode
+
+Adapted from [hoovercj/vscode-ruby-linter](https://github.com/hoovercj/vscode-ruby-linter)
