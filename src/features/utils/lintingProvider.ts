@@ -9,13 +9,13 @@ export enum RunTrigger {
 }
 
 export interface LinterConfiguration {
-	runTrigger: string,
+	runTrigger: string;
 }
 
 export interface Linter {
-	languageId: string,
-	loadConfiguration: () => LinterConfiguration,
-	process: (document: TextDocument) => Diagnostic[]
+	languageId: string;
+	loadConfiguration: () => LinterConfiguration;
+	process: (document: TextDocument) => Diagnostic[];
 }
 
 export class LintingProvider {
