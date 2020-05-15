@@ -45,7 +45,7 @@
 		"webpack": "webpack --mode development",
 		"lint": "tslint -p ./",
 		"package": "vsce package --yarn",
-		"deploy": "vsce publish patch --yarn"
+		"deploy": "vsce publish --yarn"
 	},
 	"devDependencies": {
 		"@types/node": "^13.11.0",
