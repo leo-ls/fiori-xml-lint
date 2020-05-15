@@ -25,4 +25,6 @@ steps:
   displayName: 'Publish'
   condition: succeeded()
   env:
+    GIT_COMMITER_NAME: $(GIT_COMMITER_NAME)
+    GIT_COMMITER_EMAIL: $(GIT_COMMITER_EMAIL)
     VSCODE_MARKETPLACE_TOKEN: $(VSCODE_MARKETPLACE_TOKEN)
