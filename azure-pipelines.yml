@@ -17,12 +17,14 @@ steps:
 - task: Npm@1
   inputs:
     command: 'install'
+  displayName: 'Install Node dependencies'
 
 - bash: |
     echo ">>> Publish"
     git config user.name $(GIT_COMMITER_NAME)
     git config user.email $(GIT_COMMITER_EMAIL)
     git checkout -- .npmrc
+    yarn version --patch
     yarn package
     yarn deploy --packagePath $(find ./ -iname "*.vsix") --pat $(VSCODE_MARKETPLACE_TOKEN)
   displayName: 'Publish'
