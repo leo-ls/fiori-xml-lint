@@ -6,6 +6,9 @@ pool:
 
 steps:
 
+- checkout: self
+  clean: true
+
 - task: NodeTool@0
   inputs:
     versionSpec: '12.x'
@@ -17,7 +20,7 @@ steps:
 
 - bash: |
     echo ">>> Publish"
-    git clean -ffd
+    git checkout .
     yarn deploy -p $(VSCODE_MARKETPLACE_TOKEN)
   displayName: 'Publish'
   condition: succeeded()
