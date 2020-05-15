@@ -9,5 +9,5 @@ vsc-extension-quickstart.md
 **/*.map
 **/*.ts
 node_modules
-!node_modules/@sap
+!node_modules/@sap/**
 webpack.config.js
