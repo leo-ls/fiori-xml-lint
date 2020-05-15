@@ -14,20 +14,21 @@ steps:
     versionSpec: '12.x'
   displayName: 'Install Node.js'
 
-- task: Npm@1
-  inputs:
-    command: 'install'
-  displayName: 'Install Node dependencies'
-
 - bash: |
-    echo ">>> Publish"
+    echo ">>> Install"
+    yarn install
+    echo ">>> Configure Git"
     git config user.name $(GIT_COMMITER_NAME)
     git config user.email $(GIT_COMMITER_EMAIL)
     git checkout -- .npmrc
     yarn version --patch
+    echo ">>> Package"
     yarn package
+    echo ">>> Publish"
     yarn deploy --packagePath $(find ./ -iname "*.vsix") --pat $(VSCODE_MARKETPLACE_TOKEN)
-  displayName: 'Publish'
+    echo ">>> Bump version"
+    git push
+  displayName: 'Package & publish'
   condition: succeeded()
   env:
     GIT_COMMITER_NAME: $(GIT_COMMITER_NAME)
