@@ -9,6 +9,7 @@ src/**
 **/*.map
 **/*.ts
 node_modules
+**/@sap/**/node_modules/**
 !node_modules/@sap/**
 !node_modules/amdefine/**
 !node_modules/fontoxpath/**
