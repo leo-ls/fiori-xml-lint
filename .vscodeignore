@@ -9,4 +9,11 @@ src/**
 **/*.ts
 node_modules
 !node_modules/@sap/**
+!node_modules/amdefine
+!node_modules/fontoxpath
+!node_modules/sax
+!node_modules/xmldom
 webpack.config.js
+azure-pipelines.yml
+tslint.json
+tsconfig.json

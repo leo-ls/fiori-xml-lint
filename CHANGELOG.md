@@ -1,12 +1,7 @@
-## [0.0.1]
+# [0.0.1 - 0.0.4]
 
-- Initial release
+* Initial release
 
-## [0.0.2]
+# [0.0.5]
 
-- Fixing bundling
-- Adding usage information
-
-## [0.0.3]
-
-- Fixing bundling of @sap modules
+* First stable release (solving bundle fixing)
