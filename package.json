@@ -2,7 +2,7 @@
 	"name": "fiori-xml-lint",
 	"displayName": "Fiori XML Lint",
 	"description": "Fiori XML Linter for VSCode",
-	"icon": "./icon.png",
+	"icon": "icon.png",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/leo-ls/fiori-lint-xml"
