@@ -22,7 +22,7 @@ steps:
     echo ">>> Publish"
     git config user.name $(GIT_COMMITER_NAME)
     git config user.email $(GIT_COMMITER_EMAIL)
-    git checkout .
+    git checkout -- .npmrc
     yarn deploy -p $(VSCODE_MARKETPLACE_TOKEN)
   displayName: 'Publish'
   condition: succeeded()

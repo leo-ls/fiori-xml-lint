@@ -6,3 +6,7 @@
 
 - Fixing bundling
 - Adding usage information
+
+## [0.0.3]
+
+- Fixing bundling of @sap modules
