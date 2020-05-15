@@ -17,7 +17,7 @@ steps:
 
 - bash: |
     echo ">>> Publish"
-    git clean -ffd
+    git clean -f
     yarn deploy -p $(VSCODE_MARKETPLACE_TOKEN)
   displayName: 'Publish'
   condition: succeeded()
