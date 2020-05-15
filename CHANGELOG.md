@@ -5,3 +5,4 @@
 ## [0.0.2]
 
 - Fixing bundling
+- Adding usage information
