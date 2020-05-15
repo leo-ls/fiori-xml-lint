@@ -20,3 +20,5 @@ steps:
     yarn deploy -p $(VSCODE_MARKETPLACE_TOKEN)
   displayName: 'Publish'
   condition: succeeded()
+  env:
+    VSCODE_MARKETPLACE_TOKEN: $(VSCODE_MARKETPLACE_TOKEN)
