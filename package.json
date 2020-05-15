@@ -4,8 +4,14 @@
 	"description": "Fiori XML Linter for VSCode",
 	"icon": "./icon.png",
 	"repository": {
+		"type": "git",
 		"url": "https://github.com/leo-ls/fiori-lint-xml"
 	},
+	"bugs": {
+		"url": "https://github.com/leo-ls/fiori-lint-xml/issues"
+	},
+	"homepage": "https://github.com/leo-ls/fiori-lint-xml/blob/master/README.md",
+	"license": "SEE LICENSE IN LICENSE.txt",
 	"publisher": "Leonardo Schmidt",
 	"version": "0.0.1",
 	"engines": {
@@ -37,7 +43,8 @@
 	"scripts": {
 		"vscode:prepublish": "webpack --mode production",
 		"webpack": "webpack --mode development",
-		"lint": "tslint -p ./"
+		"lint": "tslint -p ./",
+		"deploy": "vsce publish --yarn"
 	},
 	"devDependencies": {
 		"@types/node": "^13.11.0",
@@ -46,6 +53,7 @@
 		"ts-loader": "^7.0.4",
 		"tslint": "^6.1.2",
 		"typescript": "^3.8.3",
+		"vsce": "^1.75.0",
 		"webpack": "^4.43.0",
 		"webpack-cli": "^3.3.11"
 	},
