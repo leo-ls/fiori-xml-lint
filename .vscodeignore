@@ -17,3 +17,4 @@ webpack.config.js
 azure-pipelines.yml
 tslint.json
 tsconfig.json
+*.vsix

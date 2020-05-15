@@ -1,7 +1,7 @@
-# [0.0.1 - 0.0.4]
+# [<=0.0.5]
 
-* Initial release
+* Initial releases (unstable)
 
-# [0.0.5]
+# [0.0.6]
 
-* First stable release (solving bundle fixing)
+* Stable release (solving bundle packaging)
