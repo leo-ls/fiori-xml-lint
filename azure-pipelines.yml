@@ -23,11 +23,12 @@ steps:
     git checkout -- .npmrc
     yarn version --patch
     echo ">>> Package"
+    find . -name '#*#' -type f -print0 | xargs -0 rm
     yarn package
     echo ">>> Publish"
-    yarn deploy --packagePath $(find ./ -iname "*.vsix") --pat $(VSCODE_MARKETPLACE_TOKEN)
+    yarn deploy --packagePath $(find ./ -iname '*.vsix') --pat $(VSCODE_MARKETPLACE_TOKEN)
     echo ">>> Bump version"
-    git push
+    git push origin master
   displayName: 'Package & publish'
   condition: succeeded()
   env:

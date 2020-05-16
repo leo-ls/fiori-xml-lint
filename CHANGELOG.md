@@ -1,7 +1,7 @@
-## [<=0.0.6]
+## [<=0.0.7]
 
-* Initial releases (unstable)
+* Initial test releases (non-working)
 
-## [0.0.7]
+## [0.0.8]
 
-* First stable release
+* First usable release
