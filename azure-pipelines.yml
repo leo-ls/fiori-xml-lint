@@ -8,6 +8,7 @@ steps:
 
 - checkout: self
   clean: true
+  persistCredentials: true
 
 - task: NodeTool@0
   inputs:
