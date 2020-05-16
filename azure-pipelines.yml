@@ -15,15 +15,12 @@ steps:
   displayName: 'Install Node.js'
 
 - bash: |
-    echo ">>> Install"
-    yarn install --no-lockfile
     echo ">>> Configure Git"
-    git config user.name $(GIT_COMMITER_NAME)
-    git config user.email $(GIT_COMMITER_EMAIL)
+    git config --global user.name $(GIT_COMMITER_NAME)
+    git config --global user.email $(GIT_COMMITER_EMAIL)
     git checkout -- .npmrc
     yarn version --patch
     echo ">>> Package"
-    find . -name '#*#' -type f -print0 | xargs -0 rm
     yarn package
     echo ">>> Publish"
     yarn deploy --packagePath $(find ./ -iname '*.vsix') --pat $(VSCODE_MARKETPLACE_TOKEN)
