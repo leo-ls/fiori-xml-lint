@@ -16,7 +16,7 @@ steps:
 
 - bash: |
     echo ">>> Install"
-    yarn install
+    yarn install --no-lockfile
     echo ">>> Configure Git"
     git config user.name $(GIT_COMMITER_NAME)
     git config user.email $(GIT_COMMITER_EMAIL)
