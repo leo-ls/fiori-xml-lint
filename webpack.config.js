@@ -4,13 +4,14 @@
 const
     webpack = require('webpack'),
     path = require('path'),
-    CopyPlugin = require('copy-webpack-plugin');
+    CopyPlugin = require('copy-webpack-plugin'),
+    spawn = require('child_process').spawn;
 
 /**@type {webpack.ConfigurationFactory}*/
 const config = function (env) {
 
-    const plugins = [
-        env === 'production' && new CopyPlugin({
+    const plugins = env === 'production' ? [
+        new CopyPlugin({
             patterns: [
                 {
                     from: 'node_modules/@sap/**',
@@ -22,8 +23,21 @@ const config = function (env) {
                     }
                 }
             ]
-        })
-    ].filter(Boolean);
+        }),
+        {
+            apply: compiler => {
+                compiler.hooks.afterEmit.tap('AfterEmitPlugin', compilation => {
+                    const child = spawn('yarn install-deps');
+                    child.stdout.on('data', data => {
+                        process.stdout.write(data);
+                    });
+                    child.stderr.on('data', data => {
+                        process.stderr.write(data);
+                    });
+                });
+            }
+        }
+    ] : [];
 
     return {
         target: 'node',
