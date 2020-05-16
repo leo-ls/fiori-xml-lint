@@ -28,7 +28,7 @@ steps:
     echo ">>> Publish"
     yarn deploy --packagePath $(find ./ -iname '*.vsix') --pat $(VSCODE_MARKETPLACE_TOKEN)
     echo ">>> Bump version"
-    git push origin master
+    git push origin HEAD:master
   displayName: 'Package & publish'
   condition: succeeded()
   env:
