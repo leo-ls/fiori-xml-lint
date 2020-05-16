@@ -41,7 +41,7 @@
 		}
 	},
 	"scripts": {
-		"vscode:prepublish": "webpack && yarn install-deps",
+		"vscode:prepublish": "webpack --mode production && yarn install-deps",
 		"install-deps": "cd dist/node_modules/@sap/di.code-validation.xml/ && yarn install --production",
 		"package": "vsce package --yarn",
 		"deploy": "vsce publish --yarn",
