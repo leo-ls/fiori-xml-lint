@@ -15,18 +15,16 @@ steps:
   displayName: 'Install Node.js'
 
 - bash: |
-    echo ">>> Install"
-    yarn install --no-lockfile
     echo ">>> Configure Git"
     git config --global user.name $(GIT_COMMITER_NAME)
     git config --global user.email $(GIT_COMMITER_EMAIL)
-    git checkout -- .npmrc
-    yarn version --patch
+    git checkout master --progress --force
     echo ">>> Package"
+    yarn install --no-lockfile
+    yarn version --patch
     yarn package
     echo ">>> Publish"
     yarn deploy --packagePath $(find ./ -iname '*.vsix') --pat $(VSCODE_MARKETPLACE_TOKEN)
-    echo ">>> Bump version"
     git push origin HEAD:master
   displayName: 'Package & publish'
   condition: succeeded()
