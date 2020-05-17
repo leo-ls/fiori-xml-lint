@@ -13,7 +13,7 @@
 	"homepage": "https://github.com/leo-ls/fiori-lint-xml/blob/master/README.md",
 	"license": "SEE LICENSE IN LICENSE.txt",
 	"publisher": "leo-ls",
-	"version": "0.0.12",
+	"version": "0.0.13",
 	"engines": {
 		"vscode": "^1.45.0"
 	},
