@@ -3,42 +3,10 @@
 
 const
     webpack = require('webpack'),
-    path = require('path'),
-    CopyPlugin = require('copy-webpack-plugin'),
-    spawn = require('child_process').spawn;
+    path = require('path');
 
 /**@type {webpack.ConfigurationFactory}*/
-const config = function (env) {
-
-    const plugins = env === 'production' ? [
-        new CopyPlugin({
-            patterns: [
-                {
-                    from: 'node_modules/@sap/**',
-                    globOptions: {
-                        ignore: [
-                            '**/@sap/**/node_modules/**/*',
-                            '**/@sap/**/test/**/*'
-                        ]
-                    }
-                }
-            ]
-        }),
-        {
-            apply: compiler => {
-                compiler.hooks.afterEmit.tap('AfterEmitPlugin', compilation => {
-                    const child = spawn('yarn install-deps');
-                    child.stdout.on('data', data => {
-                        process.stdout.write(data);
-                    });
-                    child.stderr.on('data', data => {
-                        process.stderr.write(data);
-                    });
-                });
-            }
-        }
-    ] : [];
-
+const config = function () {
     return {
         target: 'node',
         entry: './src/extension.ts',
@@ -58,7 +26,6 @@ const config = function (env) {
         resolve: {
             extensions: ['.ts', '.js']
         },
-        plugins: plugins,
         module: {
             rules: [{
                 test: /\.ts$/,
@@ -72,8 +39,7 @@ const config = function (env) {
                     }
                 }]
             }]
-        },
+        }
     };
-
 };
 module.exports = config;
